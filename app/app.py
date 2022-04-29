@@ -12,8 +12,8 @@ def get_connection():
     :return: DB connection
     """
     config = {
-        'user': os.environ.get('DB_USER_NAME','root'),
-        'password': os.environ.get('DB_PASSWORD','root'),
+        'user': os.environ.get('username','root'),
+        'password': os.environ.get('password','root'),
         'host': 'db',
         'port': '3306',
         'database': 'drinks'
