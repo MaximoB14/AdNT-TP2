@@ -13,7 +13,7 @@ services:
       - db
     ports:
       - 8830:5000 #8830 - localhost del host, 5000 del container
-  app:
+  app2:
     build: ./app
     links:
       - db
