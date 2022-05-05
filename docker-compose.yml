@@ -13,7 +13,12 @@ services:
       - db
     ports:
       - 8830:5000 #8830 - localhost del host, 5000 del container
-
+  app:
+    build: ./app
+    links:
+      - db
+    ports:
+      - 8831:5000
 
   db:
     image: mysql:5.7
@@ -23,6 +28,7 @@ services:
       MYSQL_PASSWORD: password
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
+      - mysql-data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -35,3 +41,6 @@ services:
     restart: always
     ports:
       - 8081:80
+
+volumes:
+  mysql-data:
